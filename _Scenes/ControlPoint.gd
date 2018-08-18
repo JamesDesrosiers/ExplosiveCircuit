@@ -66,7 +66,9 @@ func _on_TextureButton_pressed():
 	
 	menu = MENU.instance()
 	menu.connect("_on_destroy", self, "_menu_callback")
-	get_node("CenterContainer").add_child(menu)
+	get_node("Canvas").add_child(menu)
+	get_node("Canvas").offset = Vector2(position.x-40, position.y-40)
+	print(menu.rect_position)
 	
 	menu.open()
 

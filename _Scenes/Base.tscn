@@ -28,6 +28,8 @@ height = 20.0
 
 [node name="World" type="Node" index="0"]
 
+_sections_unfolded = [ "Pause" ]
+
 [node name="Source" type="Node2D" parent="." index="0"]
 
 editor/display_folded = true
