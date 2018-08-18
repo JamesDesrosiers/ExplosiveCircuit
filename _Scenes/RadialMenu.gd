@@ -3,6 +3,7 @@ extends Control
 var popup
 signal _on_destroy
 signal _on_high
+signal _on_low
 
 enum STATE{
 	free,
@@ -16,6 +17,10 @@ func _ready():
 func update(state):
 	if(state == STATE.high):
 		get_node("CenterContainer/Popup/HighButton").disabled = true
+		get_node("CenterContainer/Popup/LowButton").disabled = false
+	elif(state == STATE.low):
+		get_node("CenterContainer/Popup/LowButton").disabled = true
+		get_node("CenterContainer/Popup/HighButton").disabled = false
 	return
 
 func _on_BackButton_pressed():
@@ -33,3 +38,6 @@ func empty_margin():
 
 func _on_HighButton_pressed():
 	emit_signal("_on_high")
+
+func _on_LowButton_pressed():
+	emit_signal("_on_low")

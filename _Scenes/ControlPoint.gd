@@ -63,6 +63,8 @@ func _on_TextureButton_pressed():
 	menu = MENU.instance(state)
 	menu.connect("_on_destroy", self, "_menu_gone")
 	menu.connect("_on_high", self, "set_high")
+	menu.connect("_on_low", self, "set_low")
+	
 	get_node("Canvas").add_child(menu)
 	get_node("Canvas").offset = Vector2(position.x-40, position.y-40)
 	
@@ -74,4 +76,8 @@ func _menu_gone():
 
 func set_high():
 	state = STATE.high
+	menu.update(state)
+
+func set_low():
+	state = STATE.low
 	menu.update(state)
