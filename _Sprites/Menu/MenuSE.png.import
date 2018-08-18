@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MenuSE.png-e0a41765312322b7f7ce1af2e21226c2.stex"
+path="res://.import/MenuSE.png-27f6b6c1feecf035b8524047f63eb3ea.stex"
 
 [deps]
 
-source_file="res://_Sprites/MenuSE.png"
+source_file="res://_Sprites/Menu/MenuSE.png"
 source_md5="f3cb9e6dc2a0a390f22bbad1bcf5e990"
 
-dest_files=[ "res://.import/MenuSE.png-e0a41765312322b7f7ce1af2e21226c2.stex" ]
+dest_files=[ "res://.import/MenuSE.png-27f6b6c1feecf035b8524047f63eb3ea.stex" ]
 dest_md5="39a5625cb943b85efdd80911c0fa8ba7"
 
 [params]
