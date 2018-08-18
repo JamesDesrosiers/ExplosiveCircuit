@@ -2,7 +2,7 @@ extends Node2D
 
 export(int) var HIGH = 120
 
-const MENU = preload("res://_Scenes/RadialMenu.tscn") 
+const MENU = preload("res://_Scenes/Components/RadialMenu.tscn") 
 var menu
 
 var leftConnect
@@ -19,6 +19,7 @@ enum STATE{
 
 
 func _ready():
+	get_node("Sprite").frame = 0
 	pass
 
 func _process(delta):
@@ -32,11 +33,11 @@ func update_volt():
 		var volt_left
 		var volt_right
 		
-		if(leftConnect != null and leftConnect.has_method("get_volt")):
-			volt_left = leftConnect.get_volt()
+		if(leftConnect != null and leftConnect.has_method("get_volt") and leftConnect.get_volt(self) != null):
+			volt_left = leftConnect.get_volt(self)
 		else: volt_left = 0
-		if(rightConnect != null and rightConnect.has_method("get_volt")):
-			volt_right = rightConnect.get_volt()
+		if(rightConnect != null and rightConnect.has_method("get_volt") and rightConnect.get_volt(self) != null):
+			volt_right = rightConnect.get_volt(self)
 		else: volt_right = 0
 		if(volt_left > volt_right):
 			volt = volt_left
@@ -47,7 +48,7 @@ func update_volt():
 	elif(state == STATE.low):
 		volt = 0
 
-func get_volt():
+func get_volt(who):
 	return volt
 
 func _on_Left_area_entered(area):
@@ -76,8 +77,10 @@ func _menu_gone():
 
 func set_high():
 	state = STATE.high
+	get_node("AnimationPlayer").play("ForceHigh")
 	menu.update(state)
 
 func set_low():
 	state = STATE.low
+	get_node("AnimationPlayer").play("ForceLow")
 	menu.update(state)

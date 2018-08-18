@@ -26,10 +26,10 @@ func update_volt():
 	var volt_right
 	
 	if(leftConnect != null  and leftConnect.has_method("get_volt")):
-		volt_left = leftConnect.get_volt()
+		volt_left = leftConnect.get_volt(self)
 	else: volt_left = 0
 	if(rightConnect != null and rightConnect.has_method("get_volt")):
-		volt_right = rightConnect.get_volt()
+		volt_right = rightConnect.get_volt(self)
 	else: volt_right = 0
 	
 	if(volt_right > 120 or volt_left > 120):
@@ -49,7 +49,7 @@ func update_animation():
 		get_node("AnimationPlayer").play("TurnOff")
 	else: get_node("AnimationPlayer").play("TurnOn")
 
-func get_volt():
+func get_volt(who):
 	return volt
 
 func _on_Left_area_entered(area):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://_Scenes/RadialMenu.gd" type="Script" id=1]
+[ext_resource path="res://_Scenes/Components/RadialMenu.gd" type="Script" id=1]
 [ext_resource path="res://_Sprites/Menu/MenuBase.png" type="Texture" id=2]
 [ext_resource path="res://_Sprites/Menu/MenuSE.png" type="Texture" id=3]
 [ext_resource path="res://_Sprites/Menu/MenuSEHover.png" type="Texture" id=4]
@@ -11,6 +11,7 @@
 [ext_resource path="res://_Sprites/Menu/MenuNE.png" type="Texture" id=9]
 [ext_resource path="res://_Sprites/Menu/MenuNEHover.png" type="Texture" id=10]
 [ext_resource path="res://_Sprites/Menu/MenuNEDisable.png" type="Texture" id=11]
+
 
 [node name="RadialMenu" type="Control"]
 

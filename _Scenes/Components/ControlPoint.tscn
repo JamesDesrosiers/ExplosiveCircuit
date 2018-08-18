@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://_Scenes/ControlPoint.gd" type="Script" id=1]
+[ext_resource path="res://_Scenes/Components/ControlPoint.gd" type="Script" id=1]
 [ext_resource path="res://_Sprites/ControlNode.png" type="Texture" id=2]
 [ext_resource path="res://_Sprites/TEMPControl.png" type="Texture" id=3]
 
@@ -15,6 +15,44 @@ height = 20.0
 custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "ForceHigh"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "ForceLow"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
 
 [node name="ControlPoint" type="Node2D"]
 
@@ -74,6 +112,7 @@ __meta__ = {
 
 texture = ExtResource( 3 )
 vframes = 4
+frame = 1
 _sections_unfolded = [ "Animation" ]
 __meta__ = {
 "_edit_lock_": true
@@ -81,6 +120,8 @@ __meta__ = {
 
 [node name="Left" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -103,6 +144,8 @@ __meta__ = {
 
 [node name="Right" type="Area2D" parent="." index="3"]
 
+editor/display_folded = true
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -130,6 +173,17 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/ForceHigh = SubResource( 3 )
+anims/ForceLow = SubResource( 4 )
+blend_times = [  ]
 
 [connection signal="pressed" from="CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
 

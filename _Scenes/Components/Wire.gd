@@ -12,16 +12,16 @@ func _process(delta):
 		volt = 0
 	else:
 		if(leftConnect == null): 
-			volt = rightConnect.get_volt()
+			volt = rightConnect.get_volt(self)
 		elif(rightConnect == null): 
-			volt = leftConnect.get_volt()
-		elif(rightConnect.get_volt() > leftConnect.get_volt()):
-			volt = rightConnect.get_volt()
+			volt = leftConnect.get_volt(self)
+		elif(rightConnect.get_volt(self) > leftConnect.get_volt(self)):
+			volt = rightConnect.get_volt(self)
 		else:
-			volt = leftConnect.get_volt()
+			volt = leftConnect.get_volt(self)
 
 
-func get_volt():
+func get_volt(who):
 	return volt
 
 func is_source():

@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://_Scenes/Components/Transistor.gd" type="Script" id=1]
+[ext_resource path="res://_Sprites/TEMPTransistor.png" type="Texture" id=2]
+
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 1.79132
+
+[node name="Transistor" type="Node2D"]
+
+editor/display_folded = true
+position = Vector2( 480.1, 475.888 )
+script = ExtResource( 1 )
+CONTROL_VOLT = 5
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Left" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Left" index="0"]
+
+position = Vector2( -49.6955, 34.1282 )
+shape = SubResource( 4 )
+
+[node name="Right" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" index="0"]
+
+position = Vector2( 49.0967, 32.332 )
+shape = SubResource( 5 )
+
+[node name="Top" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Top" index="0"]
+
+position = Vector2( -0.64679, -47.3005 )
+scale = Vector2( 1.73321, 1 )
+shape = SubResource( 6 )
+
+[connection signal="area_entered" from="Left" to="." method="_on_Left_area_entered"]
+
+[connection signal="area_entered" from="Right" to="." method="_on_Right_area_entered"]
+
+[connection signal="area_entered" from="Top" to="." method="_on_Top_area_entered"]
+
+

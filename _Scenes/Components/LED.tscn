@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://_Scenes/LED.gd" type="Script" id=1]
+[ext_resource path="res://_Scenes/Components/LED.gd" type="Script" id=1]
 [ext_resource path="res://_Sprites/TEMPLedSheet.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -59,6 +59,7 @@ editor/display_folded = true
 position = Vector2( 740.03, 107.226 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+DRAIN = 35
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
