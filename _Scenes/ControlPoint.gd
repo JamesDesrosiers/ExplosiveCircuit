@@ -8,7 +8,7 @@ var menu
 var leftConnect
 var rightConnect
 
-var volt = 0
+var volt = -1
 var state = STATE.free
 
 enum STATE{
@@ -44,7 +44,7 @@ func update_volt():
 			volt = volt_right
 	elif(state == STATE.high):
 		volt = HIGH
-	else:
+	elif(state == STATE.low):
 		volt = 0
 
 func get_volt():

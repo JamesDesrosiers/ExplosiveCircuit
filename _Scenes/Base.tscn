@@ -5,8 +5,8 @@
 [ext_resource path="res://_Scenes/Voltmeter.gd" type="Script" id=3]
 [ext_resource path="res://_Scenes/Wire.gd" type="Script" id=4]
 [ext_resource path="res://_Sprites/TEMPCable.png" type="Texture" id=5]
-[ext_resource path="res://_Scenes/LED.tscn" type="PackedScene" id=6]
-[ext_resource path="res://_Scenes/ControlPoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_Scenes/ControlPoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Scenes/LED.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -33,8 +33,10 @@ _sections_unfolded = [ "Pause" ]
 [node name="Source" type="Node2D" parent="." index="0"]
 
 editor/display_folded = true
-position = Vector2( 143.645, 263.964 )
+position = Vector2( 138.645, 177.482 )
+scale = Vector2( 1, 0.984943 )
 script = ExtResource( 1 )
+volt = 120
 
 [node name="Sprite" type="Sprite" parent="Source" index="0"]
 
@@ -125,7 +127,8 @@ __meta__ = {
 [node name="Wire" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
-position = Vector2( 484.956, 290.974 )
+position = Vector2( 332.478, 203.974 )
+scale = Vector2( 0.45383, 1 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Wire" index="0"]
@@ -179,17 +182,34 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="LED" parent="." index="3" instance=ExtResource( 6 )]
+[node name="ControlPoint" parent="." index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 587.002, 200 )
+
+[node name="Devices" type="Node" parent="." index="4"]
+
+[node name="LED4" parent="Devices" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 838.03, 251.226 )
+rotation = 1.5708
+DRAIN = 35
+
+[node name="LED2" parent="Devices" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 669.309, 199.337 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+DRAIN = 35
+
+[node name="LED" parent="Devices" index="2" instance=ExtResource( 7 )]
 
 editor/display_folded = false
+position = Vector2( 502.029, 202.226 )
+DRAIN = 35
 
-[node name="LED2" parent="." index="4" instance=ExtResource( 6 )]
+[node name="LED3" parent="Devices" index="3" instance=ExtResource( 7 )]
 
-position = Vector2( 791.003, 286.001 )
-
-[node name="ControlPoint" parent="." index="5" instance=ExtResource( 7 )]
-
-position = Vector2( 656.002, 110 )
+position = Vector2( 777.03, 199.226 )
+DRAIN = 35
 
 [connection signal="area_entered" from="Wire/Left" to="Wire" method="_on_Left_area_entered"]
 

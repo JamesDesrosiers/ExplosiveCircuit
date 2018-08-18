@@ -1,6 +1,6 @@
 extends Node2D
 
-var volt = 120
+export(int) var volt = 120
 
 func _ready():
 	pass

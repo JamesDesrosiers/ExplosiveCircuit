@@ -1,6 +1,6 @@
 extends Node2D
 
-const DRAIN = 35
+export(int) var DRAIN = 35
 
 var leftConnect
 var rightConnect
@@ -34,7 +34,7 @@ func update_volt():
 	
 	if(volt_right > 120 or volt_left > 120):
 		self.queue_free()
-	elif(volt_left > volt_right and volt_left > DRAIN):
+	elif(volt_left >= volt_right and volt_left > DRAIN):
 		volt = volt_left - DRAIN
 		powered = 1
 	elif(volt_right > volt_left and volt_right > DRAIN):
