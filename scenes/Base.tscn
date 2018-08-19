@@ -1,0 +1,223 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/Base.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Components/ControlPoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Components/LED.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Components/Transistor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Components/Wire.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Components/Source.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Components/Bomb.gd" type="Script" id=7]
+[ext_resource path="res://sprites/Explosive.png" type="Texture" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[node name="World" type="Node"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+SHAKE = 10
+TIME = 5
+
+[node name="Camera2D" type="Camera2D" parent="." index="0"]
+
+position = Vector2( 514.225, 303.366 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing" ]
+
+[node name="Tween" type="Tween" parent="." index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Access" type="Node" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="ControlPoint" parent="Access" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 325.714, 181.895 )
+
+[node name="ControlPoint2" parent="Access" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 464.521, 102.546 )
+
+[node name="ControlPoint3" parent="Access" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 366.452, 267.584 )
+
+[node name="ControlPoint4" parent="Access" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 744.266, 406.905 )
+
+[node name="Devices" type="Node" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="LED" parent="Devices" index="0" instance=ExtResource( 3 )]
+
+editor/display_folded = false
+position = Vector2( 278.947, 99.006 )
+
+[node name="LED2" parent="Devices" index="1" instance=ExtResource( 3 )]
+
+editor/display_folded = false
+position = Vector2( 604.749, 183.907 )
+
+[node name="LED3" parent="Devices" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 760.847, 340.622 )
+rotation = 1.5708
+
+[node name="LED4" parent="Devices" index="3" instance=ExtResource( 3 )]
+
+editor/display_folded = false
+position = Vector2( 707.533, 187.702 )
+
+[node name="LED5" parent="Devices" index="4" instance=ExtResource( 3 )]
+
+editor/display_folded = false
+position = Vector2( 385.758, 100.441 )
+
+[node name="Transistor" parent="Devices" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 501.902, 148.889 )
+
+[node name="Transistor2" parent="Devices" index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 407.123, 216.489 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wire" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 762.92, 238.796 )
+rotation = 1.5708
+scale = Vector2( 0.208108, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Source" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 149.816, 75.8105 )
+
+[node name="Source2" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 257.817, 244.812 )
+
+[node name="Bomb" type="Node2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 670.645, 409.277 )
+script = ExtResource( 7 )
+THRESHOLD = 100
+
+[node name="Left" type="Area2D" parent="Bomb" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bomb/Left" index="0"]
+
+position = Vector2( 37.0291, 5.5411 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Right" type="Area2D" parent="Bomb" index="1"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bomb/Right" index="0"]
+
+position = Vector2( -38.2508, 4.96385 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Bomb" index="2"]
+
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 0 )
+_sections_unfolded = [ "Mouse" ]
+
+[connection signal="explosion" from="Bomb" to="." method="_on_Bomb_explosion"]
+
+[connection signal="area_entered" from="Bomb/Left" to="Bomb" method="_on_Left_area_entered"]
+
+[connection signal="area_entered" from="Bomb/Right" to="Bomb" method="_on_Right_area_entered"]
+
+

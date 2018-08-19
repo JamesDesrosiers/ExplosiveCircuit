@@ -1,0 +1,196 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/Components/ControlPoint.gd" type="Script" id=1]
+[ext_resource path="res://sprites/ControlNode.png" type="Texture" id=2]
+[ext_resource path="res://sprites/TEMPControl.png" type="Texture" id=3]
+
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "ForceHigh"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "ForceLow"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[node name="ControlPoint" type="Node2D" index="0"]
+
+position = Vector2( 116.45, 60.5826 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+HIGH = 120
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -52.0
+margin_right = -12.0
+margin_bottom = -12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+_sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+vframes = 4
+frame = 1
+_sections_unfolded = [ "Animation" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Left" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" index="0"]
+
+position = Vector2( -28.2852, -1.41159 )
+scale = Vector2( 1, 0.764527 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Right" type="Area2D" parent="." index="3"]
+
+editor/display_folded = true
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" index="0"]
+
+position = Vector2( 29.7483, -0.515442 )
+scale = Vector2( 1, 0.807963 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Canvas" type="CanvasLayer" parent="." index="4"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/ForceHigh = SubResource( 3 )
+anims/ForceLow = SubResource( 4 )
+blend_times = [  ]
+
+[connection signal="pressed" from="CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+
+[connection signal="area_entered" from="Left" to="." method="_on_Left_area_entered"]
+
+[connection signal="area_entered" from="Right" to="." method="_on_Right_area_entered"]
+
+

@@ -56,41 +56,20 @@ tracks/0/keys = {
 
 [node name="ControlPoint" type="Node2D"]
 
-position = Vector2( 116.45, 60.5826 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 HIGH = 120
 
-[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
-
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -52.0
-margin_top = -52.0
-margin_right = -12.0
-margin_bottom = -12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-use_top_left = false
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="TextureButton" type="TextureButton" parent="CenterContainer" index="0"]
+[node name="TextureButton" type="TextureButton" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -185,7 +164,7 @@ anims/ForceHigh = SubResource( 3 )
 anims/ForceLow = SubResource( 4 )
 blend_times = [  ]
 
-[connection signal="pressed" from="CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 
 [connection signal="area_entered" from="Left" to="." method="_on_Left_area_entered"]
 

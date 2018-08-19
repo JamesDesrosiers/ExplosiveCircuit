@@ -9,8 +9,8 @@ func _ready():
 
 func _on_Bomb_explosion():
 	screen_shake()
-	$ColorRect.visible = true
-	$Tween.interpolate_property($"ColorRect", "color", Color(0,0,0,0), Color(1,0,0,1), TIME, Tween.TRANS_QUAD, Tween.EASE_IN)
+	$Camera2D/ColorRect.visible = true
+	$Tween.interpolate_property($"Camera2D/ColorRect", "color", Color(0,0,0,0), Color(1,0,0,1), TIME, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()
 	yield($Tween, "tween_completed")
 
