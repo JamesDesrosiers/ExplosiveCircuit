@@ -61,7 +61,8 @@ func _on_Right_area_entered(area):
 func _on_TextureButton_pressed():
 	if(menu != null): return
 	
-	menu = MENU.instance(state)
+	menu = MENU.instance()
+	menu.update(state)
 	menu.connect("_on_destroy", self, "_menu_gone")
 	menu.connect("_on_high", self, "set_high")
 	menu.connect("_on_low", self, "set_low")
