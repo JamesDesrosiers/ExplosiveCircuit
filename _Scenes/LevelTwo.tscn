@@ -16,11 +16,11 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="LevelTwo" type="Node"]
+[node name="LevelTwo" type="Node" index="0"]
 
 script = ExtResource( 1 )
 LENGTH = 13
-NEXTLVL = null
+NEXTLVL = "LevelThree.tscn"
 
 [node name="Circuitry" type="Node" parent="." index="0"]
 
