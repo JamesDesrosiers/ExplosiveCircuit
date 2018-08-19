@@ -1,6 +1,7 @@
 extends Node
 
 export(int) var LENGTH
+export(String) var NEXTLVL
 
 var time
 
@@ -29,4 +30,4 @@ func next_level():
 	$Tween.interpolate_property($"ColorRect", "color", Color(0,0,0,0), Color(0,0,0,1), 1, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()
 	yield($Tween, "tween_completed")
-	get_tree().change_scene("res://_Scenes/LevelTwo.tscn")
+	get_tree().change_scene("res://_Scenes/" + NEXTLVL)

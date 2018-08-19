@@ -1,0 +1,189 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://_Scenes/Level.gd" type="Script" id=1]
+[ext_resource path="res://_Scenes/Components/Bomb.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_Scenes/Components/LED.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_Scenes/Components/Signal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_Scenes/Components/Transistor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Scenes/Components/Wire.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Scenes/Components/Source.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_Scenes/Components/ControlPoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Fonts/Spider Talent.otf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 23
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 9 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="LevelThree" type="Node" index="0"]
+
+script = ExtResource( 1 )
+LENGTH = 20
+NEXTLVL = "TitleScreen.tscn"
+
+[node name="Devices" type="Node" parent="." index="0"]
+
+editor/display_folded = true
+
+[node name="Bomb" parent="Devices" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 711, 152 )
+
+[node name="LED" parent="Devices" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 561, 242 )
+
+[node name="Connectors" type="Node" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="Signal" parent="Connectors" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 172, 157 )
+TIME = 15
+
+[node name="Signal2" parent="Connectors" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 924.011, 369.556 )
+rotation = -1.5708
+_sections_unfolded = [ "Transform" ]
+
+[node name="Transistor" parent="Connectors" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 892.011, 295.179 )
+rotation = -1.5708
+
+[node name="Wire" parent="Connectors" index="3" instance=ExtResource( 6 )]
+
+editor/display_folded = false
+position = Vector2( 841, 162 )
+scale = Vector2( 0.359374, 1 )
+
+[node name="Wire2" parent="Connectors" index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 925.847, 199.205 )
+rotation = 1.5708
+scale = Vector2( 0.216356, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wire3" parent="Connectors" index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 381.119, 156.798 )
+rotation = -3.14159
+scale = Vector2( 0.756159, 1 )
+
+[node name="Transistor2" parent="Connectors" index="6" instance=ExtResource( 5 )]
+
+editor/display_folded = false
+position = Vector2( 619.655, 190.32 )
+rotation = -3.14159
+_sections_unfolded = [ "Transform" ]
+
+[node name="Source" parent="Connectors" index="7" instance=ExtResource( 7 )]
+
+editor/display_folded = false
+position = Vector2( 321, 222 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Source2" parent="Connectors" index="8" instance=ExtResource( 7 )]
+
+editor/display_folded = false
+position = Vector2( 429.136, 509.016 )
+rotation = -1.5708
+_sections_unfolded = [ "Transform" ]
+
+[node name="Signal3" parent="Connectors" index="9" instance=ExtResource( 4 )]
+
+position = Vector2( 291, 382 )
+_sections_unfolded = [ "Transform" ]
+TIME = 5
+
+[node name="Transistor3" parent="Connectors" index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 453.695, 275.215 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform" ]
+
+[node name="Transistor4" parent="Connectors" index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 419.804, 380.115 )
+rotation = -1.5708
+_sections_unfolded = [ "Transform" ]
+
+[node name="Access" type="Node" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="ControlPoint" parent="Access" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 811, 302 )
+
+[node name="ControlPoint2" parent="Access" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 341, 382 )
+
+[node name="Information" type="Control" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Mouse" ]
+
+[node name="Label" type="Label" parent="Information" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Mouse", "custom_fonts" ]
+
+[node name="ColorRect" type="ColorRect" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 0 )
+_sections_unfolded = [ "Mouse" ]
+
+[node name="Tween" type="Tween" parent="." index="5"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="explosion" from="Devices/Bomb" to="." method="_on_Bomb_explosion"]
+
+
