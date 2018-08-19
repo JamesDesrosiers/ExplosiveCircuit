@@ -18,7 +18,7 @@ use_filter = false
 font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="LevelThree" type="Node"]
+[node name="LevelThree" type="Node" index="0"]
 
 script = ExtResource( 1 )
 LENGTH = 20
@@ -26,19 +26,16 @@ NEXTLVL = "TitleScreen.tscn"
 
 [node name="Devices" type="Node" parent="." index="0"]
 
-editor/display_folded = true
-
 [node name="Bomb" parent="Devices" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 711, 152 )
+THRESHOLD = 20
 
 [node name="LED" parent="Devices" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 561, 242 )
 
 [node name="Connectors" type="Node" parent="." index="1"]
-
-editor/display_folded = true
 
 [node name="Signal" parent="Connectors" index="0" instance=ExtResource( 4 )]
 
@@ -53,7 +50,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Transistor" parent="Connectors" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 892.011, 295.179 )
+position = Vector2( 892.011, 300.738 )
 rotation = -1.5708
 
 [node name="Wire" parent="Connectors" index="3" instance=ExtResource( 6 )]
@@ -64,7 +61,7 @@ scale = Vector2( 0.359374, 1 )
 
 [node name="Wire2" parent="Connectors" index="4" instance=ExtResource( 6 )]
 
-position = Vector2( 925.847, 199.205 )
+position = Vector2( 925.847, 202.205 )
 rotation = 1.5708
 scale = Vector2( 0.216356, 1 )
 _sections_unfolded = [ "Transform" ]
@@ -174,6 +171,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 1, 1, 1, 0 )
 _sections_unfolded = [ "Mouse" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Tween" type="Tween" parent="." index="5"]
 
