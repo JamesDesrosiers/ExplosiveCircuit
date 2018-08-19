@@ -15,6 +15,8 @@ __meta__ = {
 
 [node name="Connectors" type="Node" parent="." index="0"]
 
+editor/display_folded = true
+
 [node name="Wire" parent="Connectors" index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 236.315, 219.392 )
@@ -30,6 +32,8 @@ position = Vector2( 94.1835, 193.907 )
 
 [node name="Access" type="Node" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="ControlPoint" parent="Access" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 461.062, 101.438 )
@@ -41,6 +45,8 @@ HIGH = 5
 position = Vector2( 640.92, 215.734 )
 
 [node name="Devices" type="Node" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="LED" parent="Devices" index="0" instance=ExtResource( 5 )]
 
@@ -58,5 +64,22 @@ position = Vector2( 719.591, 215.734 )
 
 position = Vector2( 812.275, 211.814 )
 THRESHOLD = 85
+
+[node name="ColorRect" type="ColorRect" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1027.0
+margin_bottom = 604.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 0 )
+_sections_unfolded = [ "Mouse" ]
 
 
