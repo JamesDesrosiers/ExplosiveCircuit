@@ -12,7 +12,7 @@
 [ext_resource path="res://_Sprites/Menu/MenuNEHover.png" type="Texture" id=10]
 [ext_resource path="res://_Sprites/Menu/MenuNEDisable.png" type="Texture" id=11]
 
-[node name="RadialMenu" type="Control"]
+[node name="RadialMenu" type="Control" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5

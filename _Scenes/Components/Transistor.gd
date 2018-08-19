@@ -24,7 +24,7 @@ func _on_Top_area_entered(area):
 	topConnect = area.get_parent()
 
 func update_volt():
-	if(topConnect != null and topConnect.has_method("get_volt") and topConnect.get_volt(self) > CONTROL_VOLT):
+	if(topConnect != null and topConnect.has_method("get_volt") and topConnect.get_volt(self) >= CONTROL_VOLT):
 		volt = 0
 		return
 	
