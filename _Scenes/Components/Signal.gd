@@ -6,8 +6,9 @@ export(int) var TIME = 10
 var active = false
 
 func _ready():
-	$Timer.wait_time = TIME
-	$Timer.start()
+	get_node("Timer").connect("timeout", self, "_on_Timer_timeout")
+	get_node("Timer").wait_time = TIME
+	get_node("Timer").start()
 	pass
 
 

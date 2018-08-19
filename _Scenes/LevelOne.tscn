@@ -20,10 +20,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+LENGTH = 11
 
 [node name="Connectors" type="Node" parent="." index="0"]
-
-editor/display_folded = true
 
 [node name="Signal" parent="Connectors" index="0" instance=ExtResource( 2 )]
 
@@ -31,15 +30,11 @@ position = Vector2( 446.543, 316.728 )
 
 [node name="Access" type="Node" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="ControlPoint2" parent="Access" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 497.294, 319.181 )
 
 [node name="Devices" type="Node" parent="." index="2"]
-
-editor/display_folded = true
 
 [node name="Bomb" parent="Devices" index="0" instance=ExtResource( 4 )]
 
@@ -117,9 +112,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 214.0
-margin_top = 100.0
+margin_top = 54.0
 margin_right = 814.0
-margin_bottom = 200.0
+margin_bottom = 154.0
 rect_min_size = Vector2( 600, 100 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true

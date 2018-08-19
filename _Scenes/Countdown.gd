@@ -8,6 +8,7 @@ func _ready():
 	current = 0
 
 func _process(delta):
+	full = get_parent().get_node("Timer").wait_time
 	current += delta
 	update_fill()
 	pass

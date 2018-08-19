@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://_Scenes/Components/Signal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_Scenes/Components/LED.tscn" type="PackedScene" id=2]
+
+[node name="LevelTwo" type="Node" index="0"]
+
+[node name="Circuitry" type="Node" parent="." index="0"]
+
+[node name="Signal" parent="Circuitry" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 265.211, 142.683 )
+
+[node name="Devices" type="Node" parent="." index="1"]
+
+[node name="LED" parent="Devices" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 338.029, 142.226 )
+
+[node name="Access" type="Node" parent="." index="2"]
+
+
