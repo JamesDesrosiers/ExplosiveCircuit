@@ -33,6 +33,8 @@ func update_volt():
 	else: volt_right = 0
 	
 	if(volt_right > 120 or volt_left > 120):
+		if(leftConnect != null): leftConnect.remove(self)
+		if rightConnect != null: rightConnect.remove(self)
 		self.queue_free()
 	elif(volt_left >= volt_right and volt_left > DRAIN):
 		volt = volt_left - DRAIN
@@ -57,3 +59,7 @@ func _on_Left_area_entered(area):
 
 func _on_Right_area_entered(area):
 	rightConnect = area.get_parent()
+
+func remove(tar):
+	if(tar == leftConnect): leftConnect = null
+	if tar == rightConnect: rightConnect = null

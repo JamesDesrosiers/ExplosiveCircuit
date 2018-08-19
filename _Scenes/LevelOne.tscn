@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://_Scenes/Components/Wire.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_Scenes/Components/Transistor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://_Scenes/Components/Source.tscn" type="PackedScene" id=3]
 [ext_resource path="res://_Scenes/Components/ControlPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_Scenes/Components/LED.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Scenes/Components/Bomb.tscn" type="PackedScene" id=6]
 
 [node name="LevelOne" type="Node2D" index="0"]
 
@@ -35,6 +36,10 @@ position = Vector2( 461.062, 101.438 )
 rotation = 1.5708
 HIGH = 5
 
+[node name="ControlPoint2" parent="Access" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 640.92, 215.734 )
+
 [node name="Devices" type="Node" parent="." index="2"]
 
 [node name="LED" parent="Devices" index="0" instance=ExtResource( 5 )]
@@ -45,12 +50,13 @@ position = Vector2( 353.937, 219.058 )
 
 position = Vector2( 561.141, 216.842 )
 
-[node name="ControlPoint" parent="." index="3" instance=ExtResource( 4 )]
-
-position = Vector2( 640.92, 215.734 )
-
-[node name="LED" parent="." index="4" instance=ExtResource( 5 )]
+[node name="LED3" parent="Devices" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 719.591, 215.734 )
+
+[node name="Bomb" parent="Devices" index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 812.275, 211.814 )
+THRESHOLD = 85
 
 

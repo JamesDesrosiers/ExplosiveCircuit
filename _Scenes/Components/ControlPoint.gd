@@ -84,3 +84,7 @@ func set_low():
 	state = STATE.low
 	get_node("AnimationPlayer").play("ForceLow")
 	menu.update(state)
+
+func remove(tar):
+	if(tar == leftConnect): leftConnect = null
+	if tar == rightConnect: rightConnect = null

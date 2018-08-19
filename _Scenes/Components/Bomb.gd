@@ -49,4 +49,12 @@ func _on_Right_area_entered(area):
 
 func boom():
 	emit_signal("explosion")
+	if(rightConnect != null):
+		rightConnect.remove(self)
+	if(leftConnect != null):
+		leftConnect.remove(self)
 	self.queue_free()
+
+func remove(tar):
+	if(tar == leftConnect): leftConnect = null
+	if tar == rightConnect: rightConnect = null

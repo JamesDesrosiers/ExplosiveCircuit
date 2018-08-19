@@ -47,3 +47,8 @@ func get_volt(who):
 		return volt
 	else:
 		return null
+
+func remove(tar):
+	if(tar == leftConnect): leftConnect = null
+	if tar == rightConnect: rightConnect = null
+	if tar == topConnect: topConnect = null

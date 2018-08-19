@@ -32,3 +32,7 @@ func _on_Left_area_entered(area):
 
 func _on_Right_area_entered(area):
 	rightConnect = area.get_parent()
+
+func remove(tar):
+	if(tar == leftConnect): leftConnect = null
+	if tar == rightConnect: rightConnect = null
